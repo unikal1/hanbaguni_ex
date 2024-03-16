@@ -26,6 +26,8 @@ public class UnivInfo {
     @Column(name = "univ_studentId")
     private String univStudentId;
 
+
+
     public void updateFromDto(UpdatableDto dto) {
         dto.update(this);
     }

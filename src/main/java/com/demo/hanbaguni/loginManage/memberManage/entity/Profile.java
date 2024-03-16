@@ -27,6 +27,10 @@ public class Profile {
     @Column(name = "profile_isDormitory")
     private boolean profileIsDormitory;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_key") // DB 상에서 연결될 컬럼 이름 지정
+    private Member member;
+
     public void updateFromDto(UpdatableDto dto) {
         dto.update(this);
     }
