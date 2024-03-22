@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,6 +36,9 @@ public class Member {
     @CreationTimestamp
     @Column(name = "member_createAt")
     private LocalDateTime memberCreateAt;
+
+    @Enumerated(EnumType.STRING)
+    private List<MemberRole> memberRole;
 
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private UnivInfo univInfo;

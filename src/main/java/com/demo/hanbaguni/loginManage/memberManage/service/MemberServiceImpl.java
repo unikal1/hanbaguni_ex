@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+import static com.demo.hanbaguni.loginManage.memberManage.entity.MemberRole.USER;
+
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
@@ -24,6 +26,7 @@ public class MemberServiceImpl implements MemberService{
         newMember.updateFromDto(dtoPasswordEncoding(memberDto));
         newMember.setMemberIsEmailVerified(false);
         newMember.setMemberIsProfileInsert(false);
+        newMember.setMemberRole(USER);
 
         memberRepository.save(newMember);
         return newMember;
